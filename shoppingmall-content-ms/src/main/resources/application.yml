@@ -1,0 +1,30 @@
+server:
+  port: 8876
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: 'shoppingmall-content-ms'
+  datasource:
+    username: root
+    password: root
+    url: 'jdbc:mysql://localhost:3306/shoppingmalldb?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai'
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+
+# MinIO对象存储相关配置
+minio:
+  bucketName: mall # 存储桶名字
+  endpoint: 127.0.0.1 #桶所在节点ip
+  port: 9000      # web管理服务访问端口
+  secure: false  #false为http   true为 https
+  accessKey: minioadmin #登录账号
+  secretKey: minioadmin #密码
